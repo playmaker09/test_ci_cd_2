@@ -50,3 +50,4 @@ jobs:
         uses: Ilshidur/action-discord@master
         with:
           args: "@everyone **Release 2022-08-23 (11:33)** \n ${{ steps.logs.outputs.change-logs }}"
+          
