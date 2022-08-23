@@ -16,37 +16,9 @@ jobs:
     runs-on: ubuntu-20.04
     
     steps:
-      - name: Setup Timezone
-        uses: zcong1993/setup-timezone@master
-        with:
-           timezone: Asia/Manila
-      - uses: actions/checkout@v1
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H-%M)"
       - name: Test with environment variables
         run: echo $TAG_NAME - $RELEASE_NAME
-      - name: Generate Change Logs
-        id: logs
-        uses: paolorevillosa/release-change-logs@master
-        with:
-          custom_tags: '{"t": "Features","cb": "Client Bugfix :beetle:", "b":"Bugfix","d": "Documentation Updates","u": "Enhancements","nf": "Ninja Fix"}'
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: release-${{ steps.date.outputs.date }}
-          release_name: release-${{ steps.date.outputs.date }}
-          body: ${{ steps.logs.outputs.change-logs }}
-      - name: Discord notification
-        env:
-          DISCORD_WEBHOOK: "https://discord.com/api/webhooks/1011445312692441149/udqIdrpqDhirg5q9IcpwYFyzH-fjyvjH2gHUuIK9HmRHNcVGHwtHZ5dw_VIk0ZYnxRgs"
-        uses: Ilshidur/action-discord@master
-        with:
-          args: "@everyone **Releases ${{ steps.date.outputs.date }}** \n ${{ steps.logs.outputs.change-logs }}"
+
