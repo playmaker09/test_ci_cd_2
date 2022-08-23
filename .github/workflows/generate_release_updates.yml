@@ -1,6 +1,8 @@
 name: Release To Web Production 
 on:
-
+  pull_request:
+    types:
+      - closed
   workflow_dispatch:
     inputs:
 
