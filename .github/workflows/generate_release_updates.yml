@@ -50,4 +50,3 @@ jobs:
         with:
           args: "@everyone **Releases ${{ steps.date.outputs.date }}** \n ${{ steps.logs.outputs.change-logs }}"
           
-          
