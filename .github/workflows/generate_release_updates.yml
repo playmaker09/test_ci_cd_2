@@ -49,5 +49,4 @@ jobs:
           DISCORD_WEBHOOK: "https://discord.com/api/webhooks/1011445312692441149/udqIdrpqDhirg5q9IcpwYFyzH-fjyvjH2gHUuIK9HmRHNcVGHwtHZ5dw_VIk0ZYnxRgs"
         uses: Ilshidur/action-discord@master
         with:
-          args: "@everyone **Release 2022-08-23 (11:33)** \n ${{ steps.logs.outputs.change-logs }}"
-          
+          args: "@everyone **Releases ${{ steps.date.outputs.date }}** \n ${{ steps.logs.outputs.change-logs }}"
