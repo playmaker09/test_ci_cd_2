@@ -1,0 +1,12 @@
+Description: Production buildspec file.
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Entered the production building phase...
+      - echo Build has started..
+
+artifacts: 
+  files:
+    - '**/*'

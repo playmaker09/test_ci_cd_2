@@ -1,0 +1,13 @@
+Description: CI/CD Pipeline For GitHub Test Project II 
+version: 0.2
+
+env:
+  variables:
+    ENV_NAME: dev
+
+phases:
+  build:
+    commands:
+      - echo Entered the deployment phase...
+      - echo Deployment has started
+      - echo Deploying to Production environment
