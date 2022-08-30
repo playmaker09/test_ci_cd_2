@@ -1,6 +1,15 @@
-name: "PHP Codesniffer (PSR-12)"
+name: PHP Codesniffer (PSR-12)
 
 on:
+  workflow_dispatch:
+    inputs:
+
+      ## Optional field if you want to add description to your web
+      baseUrl:
+        description: 'Pull Checker'
+        required: false
+        default: ''
+        
 jobs:
   phpcs:
     runs-on: ubuntu-latest
